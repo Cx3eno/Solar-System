@@ -1,0 +1,111 @@
+$max-planets: 10;
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-size: 5.5vmin;
+}
+
+.scene {
+  height: 100%;
+  background: #10151a;
+  perspective: 350px;
+
+  .system {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: .25em;
+    border-radius: 100%;
+  }
+
+  .orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(127, 255, 255, .1);
+    box-shadow: 0 0 75em rgba(cyan, .05);
+    border-radius: 100%;
+    transform-style: preserve-3d;
+
+    @for $i from 0 through $max-planets {
+      &:nth-child(#{$i}) {
+        width: #{$i * 35}em;
+        height: #{$i * 35}em;
+        animation:
+          orbit
+          #{$i * $i / 1.25 * 3}s
+          linear
+          infinite;
+
+        .sphere {
+          animation:
+            counter-rotation
+            #{$i * $i / 1.25 * 3}s
+            linear
+            infinite;
+        }
+      }
+    }
+
+    .orbit {
+      left: 0;
+    }
+  }
+
+  .sphere {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 3em;
+    height: 3em;
+    transform: translate(-50%, -50%);
+    background: currentColor;
+    border-radius: 100%;
+    text-indent: -99999px;
+  }
+
+  // Sun shouldn't actually orbit anything
+  // and instead should stay at center.
+  .top-most-orbit {
+    width: 0 !important;
+    height: 0 !important;
+    animation: none !important;
+
+    & > .sphere {
+      animation: none !important;
+    }
+  }
+}
+
+@keyframes orbit {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(0deg)
+      rotateX(0deg);
+  }
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(1440deg)
+      rotateX(360deg);
+  }
+}
+
+@keyframes counter-rotation {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotateX(0deg);
+  }
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotateX(-360deg);
+  }
+}

@@ -1,0 +1,199 @@
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-size: 5.5vmin;
+}
+
+.scene {
+  height: 100%;
+  background: #10151a;
+  perspective: 350px;
+}
+.scene .system {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-size: 0.25em;
+  border-radius: 100%;
+}
+.scene .orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(127, 255, 255, 0.1);
+  box-shadow: 0 0 75em rgba(0, 255, 255, 0.05);
+  border-radius: 100%;
+  transform-style: preserve-3d;
+}
+.scene .orbit:nth-child(0) {
+  width: 0em;
+  height: 0em;
+  -webkit-animation: orbit 0s linear infinite;
+          animation: orbit 0s linear infinite;
+}
+.scene .orbit:nth-child(0) .sphere {
+  -webkit-animation: counter-rotation 0s linear infinite;
+          animation: counter-rotation 0s linear infinite;
+}
+.scene .orbit:nth-child(1) {
+  width: 35em;
+  height: 35em;
+  -webkit-animation: orbit 2.4s linear infinite;
+          animation: orbit 2.4s linear infinite;
+}
+.scene .orbit:nth-child(1) .sphere {
+  -webkit-animation: counter-rotation 2.4s linear infinite;
+          animation: counter-rotation 2.4s linear infinite;
+}
+.scene .orbit:nth-child(2) {
+  width: 70em;
+  height: 70em;
+  -webkit-animation: orbit 9.6s linear infinite;
+          animation: orbit 9.6s linear infinite;
+}
+.scene .orbit:nth-child(2) .sphere {
+  -webkit-animation: counter-rotation 9.6s linear infinite;
+          animation: counter-rotation 9.6s linear infinite;
+}
+.scene .orbit:nth-child(3) {
+  width: 105em;
+  height: 105em;
+  -webkit-animation: orbit 21.6s linear infinite;
+          animation: orbit 21.6s linear infinite;
+}
+.scene .orbit:nth-child(3) .sphere {
+  -webkit-animation: counter-rotation 21.6s linear infinite;
+          animation: counter-rotation 21.6s linear infinite;
+}
+.scene .orbit:nth-child(4) {
+  width: 140em;
+  height: 140em;
+  -webkit-animation: orbit 38.4s linear infinite;
+          animation: orbit 38.4s linear infinite;
+}
+.scene .orbit:nth-child(4) .sphere {
+  -webkit-animation: counter-rotation 38.4s linear infinite;
+          animation: counter-rotation 38.4s linear infinite;
+}
+.scene .orbit:nth-child(5) {
+  width: 175em;
+  height: 175em;
+  -webkit-animation: orbit 60s linear infinite;
+          animation: orbit 60s linear infinite;
+}
+.scene .orbit:nth-child(5) .sphere {
+  -webkit-animation: counter-rotation 60s linear infinite;
+          animation: counter-rotation 60s linear infinite;
+}
+.scene .orbit:nth-child(6) {
+  width: 210em;
+  height: 210em;
+  -webkit-animation: orbit 86.4s linear infinite;
+          animation: orbit 86.4s linear infinite;
+}
+.scene .orbit:nth-child(6) .sphere {
+  -webkit-animation: counter-rotation 86.4s linear infinite;
+          animation: counter-rotation 86.4s linear infinite;
+}
+.scene .orbit:nth-child(7) {
+  width: 245em;
+  height: 245em;
+  -webkit-animation: orbit 117.6s linear infinite;
+          animation: orbit 117.6s linear infinite;
+}
+.scene .orbit:nth-child(7) .sphere {
+  -webkit-animation: counter-rotation 117.6s linear infinite;
+          animation: counter-rotation 117.6s linear infinite;
+}
+.scene .orbit:nth-child(8) {
+  width: 280em;
+  height: 280em;
+  -webkit-animation: orbit 153.6s linear infinite;
+          animation: orbit 153.6s linear infinite;
+}
+.scene .orbit:nth-child(8) .sphere {
+  -webkit-animation: counter-rotation 153.6s linear infinite;
+          animation: counter-rotation 153.6s linear infinite;
+}
+.scene .orbit:nth-child(9) {
+  width: 315em;
+  height: 315em;
+  -webkit-animation: orbit 194.4s linear infinite;
+          animation: orbit 194.4s linear infinite;
+}
+.scene .orbit:nth-child(9) .sphere {
+  -webkit-animation: counter-rotation 194.4s linear infinite;
+          animation: counter-rotation 194.4s linear infinite;
+}
+.scene .orbit:nth-child(10) {
+  width: 350em;
+  height: 350em;
+  -webkit-animation: orbit 240s linear infinite;
+          animation: orbit 240s linear infinite;
+}
+.scene .orbit:nth-child(10) .sphere {
+  -webkit-animation: counter-rotation 240s linear infinite;
+          animation: counter-rotation 240s linear infinite;
+}
+.scene .orbit .orbit {
+  left: 0;
+}
+.scene .sphere {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 3em;
+  height: 3em;
+  transform: translate(-50%, -50%);
+  background: currentColor;
+  border-radius: 100%;
+  text-indent: -99999px;
+}
+.scene .top-most-orbit {
+  width: 0 !important;
+  height: 0 !important;
+  -webkit-animation: none !important;
+          animation: none !important;
+}
+.scene .top-most-orbit > .sphere {
+  -webkit-animation: none !important;
+          animation: none !important;
+}
+
+@-webkit-keyframes orbit {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg) rotateX(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(1440deg) rotateX(360deg);
+  }
+}
+
+@keyframes orbit {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg) rotateX(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(1440deg) rotateX(360deg);
+  }
+}
+@-webkit-keyframes counter-rotation {
+  from {
+    transform: translate(-50%, -50%) rotateX(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotateX(-360deg);
+  }
+}
+@keyframes counter-rotation {
+  from {
+    transform: translate(-50%, -50%) rotateX(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotateX(-360deg);
+  }
+}
